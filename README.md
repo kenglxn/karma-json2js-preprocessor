@@ -1,6 +1,6 @@
 # karma-json2js-preprocessor
 
-a carbon copy of karma-html2js-preprocessor. Only difference is the name, and the fact that it stores files in window.__json__ instead of __html__
+a carbon copy of [karma-html2js-preprocessor](https://github.com/karma-runner/karma-html2js-preprocessor). Only difference is the name, and the fact that it stores files in window.__json__ instead of __html__
 
 If you need this just use html2js instead:
 
