@@ -1,7 +1,7 @@
 {
-  "name": "karma-html2js-preprocessor",
+  "name": "karma-json2js-preprocessor",
   "version": "0.1.0",
-  "description": "A Karma plugin. Convert HTML files into JS strings to serve them in a script tag.",
+  "description": "A Karma plugin. Convert JSON files into JS strings to serve them in a script tag.",
   "main": "lib/index.js",
   "scripts": {
     "test": "grunt test"
