@@ -15,11 +15,11 @@ module.exports = function(karma) {
     // list of files / patterns to load in the browser
     files: [
       '*.js',
-      '*.html'
+      '*.json'
     ],
 
     preprocessors: {
-      '*.html': 'html2js'
+      '*.json': 'json2js'
     },
 
 
@@ -79,7 +79,7 @@ module.exports = function(karma) {
     plugins: [
       'karma-jasmine',
       'karma-chrome-launcher',
-      'karma-html2js-preprocessor'
+      'karma-json2js-preprocessor'
     ],
   });
 };

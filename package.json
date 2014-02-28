@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/karma-runner/karma-html2js-preprocessor.git"
+    "url": "https://github.com/kenglxn/karma-json2js-preprocessor.git"
   },
   "keywords": [
     "karma-plugin",
     "karma-preprocessor",
-    "html2js",
-    "html"
+    "json2js",
+    "json"
   ],
-  "author": "Vojta Jina <vojta.jina@gmail.com>",
+  "author": "Vojta Jina <vojta.jina@gmail.com>, Ken Gullaksen <ken@glxn.net>",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",

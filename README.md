@@ -1,24 +1,22 @@
-# karma-html2js-preprocessor [![Build Status](https://travis-ci.org/karma-runner/karma-html2js-preprocessor.png?branch=master)](https://travis-ci.org/karma-runner/karma-html2js-preprocessor)
+# karma-json2js-preprocessor
 
-> Preprocessor for converting HTML files into JS strings.
-
-*Note:* If you are using [AngularJS](http://angularjs.org/), check out [karma-ng-html2js-preprocessor](https://github.com/karma-runner/karma-ng-html2js-preprocessor).
+> Preprocessor for converting JSON files into JS strings.
 
 ## Installation
 
-The easiest way is to keep `karma-html2js-preprocessor` as a devDependency in your `package.json`.
+The easiest way is to keep `karma-json2js-preprocessor` as a devDependency in your `package.json`.
 ```json
 {
   "devDependencies": {
     "karma": "~0.10",
-    "karma-html2js-preprocessor": "~0.1"
+    "karma-json2js-preprocessor": "~0.1"
   }
 }
 ```
 
 You can simple do it by:
 ```bash
-npm install karma-html2js-preprocessor --save-dev
+npm install karma-json2js-preprocessor --save-dev
 ```
 
 ## Configuration
@@ -28,12 +26,12 @@ Following code shows the default configuration...
 module.exports = function(config) {
   config.set({
     preprocessors: {
-      '**/*.html': ['html2js']
+      '**/*.json': ['json2js']
     },
 
     files: [
       '*.js',
-      '*.html'
+      '*.json'
     ]
   });
 };
@@ -41,23 +39,24 @@ module.exports = function(config) {
 
 ## How does it work ?
 
-This preprocessor converts HTML files into JS strings and publishes them in the global `window.__html__`, so that you can use these for testing DOM operations.
+This preprocessor converts JSON files into JS strings and publishes them in the global `window.__json__`, so that you can use these for testing mock json requests and responses.
 
-For instance this `template.html`...
-```html
-<div>something</div>
-```
-... will be served as `template.html.js`:
+For instance this `example.json`...
 ```js
-window.__html__ = window.__html__ || {};
-window.__html__['template.html'] = '<div>something</div>';
+{
+    "name": "foo",
+    "friends": [
+        {
+            "name": "bar"
+        }
+    ]
+}
+```
+... will be served as `example.json.js`:
+```js
+window.__json__ = window.__json__ || {};
+window.__json__['example.json'] = '{"name":"foo","friends":[{"name":"bar"}]}';
 ```
 
-See the [end2end test](https://github.com/karma-runner/karma/tree/master/test/e2e/html2js) for a complete example.
+See the [end2end test](https://github.com/kenglxn/karma-json2js-preprocessor/tree/master/e2e-test) for a complete example.
 
-----
-
-For more information on Karma see the [homepage].
-
-
-[homepage]: http://karma-runner.github.com

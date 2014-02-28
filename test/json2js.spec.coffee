@@ -1,11 +1,10 @@
-describe 'preprocessors html2js', ->
+describe 'preprocessors json2js', ->
   expect = require('chai').expect;
 
-  html2js = require '../lib/html2js'
+  json2js = require '../lib/json2js'
   logger = create: -> {debug: ->}
   process = null
 
-  # TODO(vojta): refactor this somehow ;-) it's copy pasted from lib/file-list.js
   File = (path, mtime) ->
     @path = path
     @originalPath = path
@@ -17,26 +16,26 @@ describe 'preprocessors html2js', ->
     str.replace /[\s\n]/g, ''
 
   beforeEach ->
-    process = html2js logger, '/base'
+    process = json2js logger, '/base'
 
 
   it 'should change path to *.js', (done) ->
-    file = new File '/base/path/file.html'
+    file = new File '/base/path/file.json'
 
     process '', file, (processedContent) ->
-      expect(file.path).to.equal '/base/path/file.html.js'
+      expect(file.path).to.equal '/base/path/file.json.js'
       done()
 
 
   it 'should preserve new lines', (done) ->
-    file = new File '/base/path/file.html'
+    file = new File '/base/path/file.json'
 
     process 'first\nsecond', file, (processedContent) ->
       expect(removeSpacesFrom processedContent).to.contain "'first\\n'+'second'"
       done()
 
   it 'should preserve Windows new lines', (done) ->
-    file = new File '/base/path/file.html'
+    file = new File '/base/path/file.json'
 
     process 'first\r\nsecond', file, (processedContent) ->
       expect(processedContent).to.not.contain '\r'
